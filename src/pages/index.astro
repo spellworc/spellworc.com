@@ -1,0 +1,85 @@
+---
+import SwMarcle from "@assets/SwMarcle.astro";
+import SwWordmark from "@assets/SwWordmark.astro";
+import Container from "@components/Container.astro";
+import Icon from "@components/Icon.astro";
+import LinkCard from "@components/LinkCard.astro";
+import Layout from "@layouts/Layout.astro";
+import { socials, stead } from "inning";
+---
+
+<Layout
+  title="Spellworc"
+  description="A home for rightwise men shaping new works from old traditions."
+>
+  <Container>
+    <div class="mb-8 flex flex-col items-center">
+      <div class="size-28">
+        <SwMarcle />
+      </div>
+
+      <div class="w-52"><SwWordmark /></div>
+      <h1 class="sr-only text-4xl font-semibold">{stead.name}</h1>
+      <p class="text-center">{stead.description}</p>
+    </div>
+
+    <ul class="mx-auto max-w-96 space-y-4">
+      <li>
+        <LinkCard
+          title="YouTube"
+          description="Watch our videos"
+          href={socials.youtube.spellworc}
+        >
+          <Icon name="youtube" set="brand" class="group-hover:fill-[#FF0000]" />
+        </LinkCard>
+      </li>
+      <li>
+        <LinkCard
+          title="Substack"
+          description="Read our articles"
+          href={socials.substack}
+        >
+          <Icon
+            name="substack"
+            set="brand"
+            class="group-hover:fill-[#FF6719]"
+          />
+        </LinkCard>
+      </li>
+      <li>
+        <LinkCard
+          title="Discord"
+          description="Join us for a chat"
+          href={socials.discord}
+        >
+          <Icon name="discord" set="brand" class="group-hover:fill-[#5865F2]" />
+        </LinkCard>
+      </li>
+      <li>
+        <LinkCard title="X" description="Keep abreast" href={socials.x}>
+          <Icon
+            name="x"
+            set="brand"
+            class="group-hover:fill-[#000] group-hover:dark:fill-[#FFF]"
+          />
+        </LinkCard>
+      </li>
+    </ul>
+
+    <div class="mt-8">
+      <a
+        href={`mailto:${socials.email}`}
+        class="group flex items-center justify-center gap-2 hover:text-black dark:hover:text-white"
+      >
+        <span class="">
+          <Icon set="solid" name="envelope" class="block group-hover:hidden" />
+          <Icon
+            set="solid"
+            name="envelope-open"
+            class="hidden group-hover:block"
+          />
+        </span>{socials.email}
+      </a>
+    </div>
+  </Container>
+</Layout>

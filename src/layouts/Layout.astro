@@ -1,0 +1,41 @@
+---
+import SteadHead from "@components/SteadHead.astro";
+import { stead } from "inning";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Background from "@assets/Background.astro";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="overflow-y-scroll [color-scheme:light] dark:[color-scheme:dark]"
+>
+  <SteadHead title={`${title} | ${stead.name}`} description={description} />
+  <body
+    class="bg-stone-100 font-sans text-black/70 antialiased dark:bg-stone-900 dark:text-white/75"
+  >
+    <Background class="fixed inset-0 -z-10 size-full blur-3xl" />
+    <!-- <Header /> -->
+    <main class="py-32">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
